@@ -1,0 +1,53 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Dell\\Desktop\\My Project\\ScannerQRCode\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{53D1A66C-C770-49CE-BACD-DE0552779BCB}|ScannerQRCode\\ScannerQRCode.csproj|c:\\users\\dell\\desktop\\my project\\scannerqrcode\\scannerqrcode\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{53D1A66C-C770-49CE-BACD-DE0552779BCB}|ScannerQRCode\\ScannerQRCode.csproj|solutionrelative:scannerqrcode\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{53D1A66C-C770-49CE-BACD-DE0552779BCB}|ScannerQRCode\\ScannerQRCode.csproj|c:\\users\\dell\\desktop\\my project\\scannerqrcode\\scannerqrcode\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{53D1A66C-C770-49CE-BACD-DE0552779BCB}|ScannerQRCode\\ScannerQRCode.csproj|solutionrelative:scannerqrcode\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\Dell\\Desktop\\My Project\\ScannerQRCode\\ScannerQRCode\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "ScannerQRCode\\MainWindow.xaml",
+              "ToolTip": "C:\\Users\\Dell\\Desktop\\My Project\\ScannerQRCode\\ScannerQRCode\\MainWindow.xaml",
+              "RelativeToolTip": "ScannerQRCode\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-10-19T15:28:33.754Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Dell\\Desktop\\My Project\\ScannerQRCode\\ScannerQRCode\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "ScannerQRCode\\MainWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\Dell\\Desktop\\My Project\\ScannerQRCode\\ScannerQRCode\\MainWindow.xaml.cs",
+              "RelativeToolTip": "ScannerQRCode\\MainWindow.xaml.cs",
+              "ViewState": "AgIAAHIAAAAAAAAAAAAqwH0AAABIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-19T15:28:33.605Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
