@@ -20,7 +20,23 @@ namespace BT3_Day2
         public MainWindow()
         {
             InitializeComponent();
-            _barcodeReader = new ZXing.Windows.Compatibility.BarcodeReader();
+            // Cấu hình BarcodeReader để quét mã QR và mã vạch
+            _barcodeReader = new ZXing.Windows.Compatibility.BarcodeReader
+            {
+                Options = new ZXing.Common.DecodingOptions
+                {
+                    PossibleFormats = new List<ZXing.BarcodeFormat>
+                    {
+                        ZXing.BarcodeFormat.QR_CODE,
+                        ZXing.BarcodeFormat.CODE_128,  // Quét mã vạch 128
+                        ZXing.BarcodeFormat.CODE_39,   // Quét mã vạch 39
+                        ZXing.BarcodeFormat.EAN_13,    // Quét mã EAN 13
+                        ZXing.BarcodeFormat.UPC_A,     // Quét mã UPC
+                        ZXing.BarcodeFormat.UPC_E      // Quét mã UPC-E
+                    },
+                    TryHarder = true
+                }
+            };
         }
 
         private void btnStart_Click(object sender, RoutedEventArgs e)
@@ -71,8 +87,9 @@ namespace BT3_Day2
                             {
                                 // Nếu nội dung không phải là URL, lưu vào cơ sở dữ liệu
                                 SaveQRCode(qrContent);
-                                MessageBox.Show($"Nội dung mã QR được quét: {qrContent}", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
+                                MessageBox.Show($"Nội dung mã QR hoặc mã vạch được quét: {qrContent}", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
                             }
+
                         }
                     });
                 }
@@ -113,61 +130,9 @@ namespace BT3_Day2
                 context.QRCodeScans.Add(qrCodeScan);
                 context.SaveChanges();
             }
-            Dispatcher.Invoke(() =>
-            {
-                MessageBox.Show($"Mã QR quét được: {qrCodeText}", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
-            });
-        }
+               }
 
-        // Hàm để test quét mã vạch từ hình ảnh
-        private void btnTestQRCode_Click(object sender, RoutedEventArgs e)
-        {
-            // Đường dẫn đến hình ảnh mã vạch
-            string filePath = @"C:\Users\Dell\Desktop\barcode_image.png"; // Đặt đường dẫn đúng đến hình ảnh của bạn
-            TestDecodeFromFile(filePath);
-        }
 
-        private void TestDecodeFromFile(string filePath)
-        {
-            // Tải hình ảnh từ tệp
-            var bitmap = (Bitmap)Image.FromFile(filePath);
-
-            // Xử lý QR code
-            var result = _barcodeReader.Decode(bitmap);
-            if (result != null)
-            {
-                string qrContent = result.Text;
-
-                // Kiểm tra nếu nội dung là một liên kết URL
-                if (Uri.IsWellFormedUriString(qrContent, UriKind.Absolute))
-                {
-                    MessageBox.Show($"Liên kết URL được quét: {qrContent}", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
-                    System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
-                    {
-                        FileName = qrContent,
-                        UseShellExecute = true
-                    });
-                }
-                else
-                {
-                    // Nếu không phải URL, lưu vào cơ sở dữ liệu
-                    using (var context = new QRContext())
-                    {
-                        var qrCodeScan = new Entities.QRCodeScan
-                        {
-                            QRCodeText = qrContent,
-                            ScanTime = DateTime.Now
-                        };
-                        context.QRCodeScans.Add(qrCodeScan);
-                        context.SaveChanges();
-                    }
-                    MessageBox.Show($"Nội dung mã QR được quét: {qrContent}", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
-                }
-            }
-            else
-            {
-                MessageBox.Show("Không thể quét mã vạch!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Warning);
-            }
-        }
+       
     }
 }
